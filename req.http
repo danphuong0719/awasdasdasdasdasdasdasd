@@ -1,0 +1,48 @@
+###
+POST  http://localhost:3005/auth/register
+Content-Type: application/json
+
+{
+    "email": "abc@gmail.com",
+    "name": "ABC",
+    "password": "123123"
+}
+
+###
+POST  http://localhost:3005/auth/login
+Content-Type: application/json
+
+{
+    "email": "abc@gmail.com",
+    "password": "123123"
+}
+
+###
+GET  http://localhost:3005/challenges
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNzkxY2Q4Nzc1YWEzNDdmZGE1ODhhZCIsImlhdCI6MTYzNTMyNzIzNX0.fEK-1QGyUperR4DEysewVDe0agPGgp_RdkBLwkqRMqg
+
+###
+POST http://localhost:3005/challenges
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNzkxY2Q4Nzc1YWEzNDdmZGE1ODhhZCIsImlhdCI6MTYzNTMyNzIzNX0.fEK-1QGyUperR4DEysewVDe0agPGgp_RdkBLwkqRMqg
+
+{
+    "title": "Responsive website1",
+    "description": "Test for responsive website",
+    "gitLink": "github1231.com"
+}
+
+###
+PUT http://localhost:3005/challenges/61792842efccafc1c8999592
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNzkxY2Q4Nzc1YWEzNDdmZGE1ODhhZCIsImlhdCI6MTYzNTMyNzIzNX0.fEK-1QGyUperR4DEysewVDe0agPGgp_RdkBLwkqRMqg
+
+{
+    "title": "Responsive web",
+    "description": "Test for responsive website",
+    "gitLink": "github1231.com"
+}
+
+###
+DELETE http://localhost:3005/challenges/617932b0534fb99e76d37cf4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNzkxY2Q4Nzc1YWEzNDdmZGE1ODhhZCIsImlhdCI6MTYzNTMyNzIzNX0.fEK-1QGyUperR4DEysewVDe0agPGgp_RdkBLwkqRMqg

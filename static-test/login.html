@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>LOGIN</h1>
+    <form action="" id="login-form">
+      <input type="text" name="email" placeholder="Email" autocomplete="" />
+      <input
+        type="text"
+        name="password"
+        placeholder="Password"
+        autocomplete=""
+      />
+      <button type="submit" value="Login">Login</button>
+    </form>
+    <script>
+      const form = document.getElementById("login-form");
+      let name = form.elements.name;
+      let email = form.elements.email;
+      let password = form.elements.password;
+      form.addEventListener("submit", login);
+
+      async function login(event) {
+        event.preventDefault();
+        let email = form.elements.email.value;
+        let password = form.elements.password.value;
+
+        const result = await fetch("/auth/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }).then((res) => res.json());
+      }
+    </script>
+  </body>
+</html>

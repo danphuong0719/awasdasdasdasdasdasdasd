@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Registration</h1>
+    <form action="" id="register-form">
+      <input type="text" name="name" placeholder="Name"  autocomplete=""  />
+      <input type="text" name="email" placeholder="Email" autocomplete=""  />
+      <input type="text" name="password" placeholder="Password" autocomplete=""  />
+      <button type="submit" value="Register">Register</button>
+    </form>
+    <script>
+      const form = document.getElementById("register-form");
+      let name = form.elements.name;
+      let email = form.elements.email;
+      let password = form.elements.password;
+      form.addEventListener("submit", registerUser);
+
+      async function registerUser(event) {
+        event.preventDefault();
+        let name = form.elements.name.value;
+        let email = form.elements.email.value;
+        let password = form.elements.password.value;
+
+        const result = await fetch("/auth/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
+        }).then((res) => res.json());
+          console.log(result);
+      }
+    </script>
+  </body>
+</html>
